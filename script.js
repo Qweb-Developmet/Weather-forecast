@@ -36,7 +36,7 @@ function forecastapihandlingfn(city) {
 }
 function formatday(timestamp) {
   let date = new Date(timestamp * 1000); // Convert timestamp to milliseconds
-  const daysOfWeek = [
+  const days = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -45,34 +45,37 @@ function formatday(timestamp) {
     "Friday",
     "Saturday",
   ];
-  return daysOfWeek[date.getDay()];
+
+  return days[date.getDay()];
 }
 
 function forecastfn(response) {
-  let forecastElement = document.querySelector(`#forecast`);
+  console.log(response.data);
   let forecastsHtml = ``;
   response.data.daily.forEach(function (day) {
     // Call formatday to get the correct day of the week
-    const dayOfWeek = formatday(day);
+
     forecastsHtml += `
       <li class="2day">
-        <div class="dforecast1">${dayOfWeek} <p> ${Math.round(
+        <div class="dforecast1">
+          <div >${formatday(day.time)} <p> ${Math.round(
       day.temperature.minimum
-    )}°C to  
-        <b style="font-size: larger;"> ${Math.round(
-          day.temperature.maximum
-        )}°C</b> 
-        </p> </div> 
-        <img
-          src="${day.condition.icon_url}" alt="weather icon"
-          class="wicon2"
-          id="wicon"
-          width="100px"
-        />
+    )}°C to
+          <b style="font-size: larger;"> ${Math.round(
+            day.temperature.maximum
+          )}°C</b>
+          </p> </div>
+          <img
+            src="${day.condition.icon_url}" alt="weather icon"
+            class="wicon2"
+            id="wicon"
+            width="100px"
+          />
+        </div>
       </li>`;
   });
+  let forecastElement = document.querySelector(`#forecast`);
   forecastElement.innerHTML = forecastsHtml;
-  console.log(response.data.daily);
 }
 
 let form = document.querySelector("form");
@@ -90,9 +93,6 @@ function htmlmodifier(response) {
   let tempraturelikeElement = document.querySelector(`.tempraturelike`);
   let windspeedElement = document.querySelector(`.windspeed`);
 
-  forcaweather.forEach((element) => {
-    element.src = response.data.condition.icon_url; // Assuming the elements are <img> tags
-  });
   const daysOfWeek = [
     "Sunday",
     "Monday",
@@ -109,9 +109,9 @@ function htmlmodifier(response) {
   let currentDayIndex = now.getDay(); // returns 0 for Sunday, 1 for Monday, etc.
 
   // Helper function to get the correct day name, considering wrapping around the week
-  function getDayName(dayIndex) {
-    return daysOfWeek[dayIndex % 7]; // % 7 ensures it wraps around if it exceeds the index
-  }
+  // function getDayName(dayIndex) {
+  //   return daysOfWeek[dayIndex % 7]; // % 7 ensures it wraps around if it exceeds the index
+  // }
 
   const day = daysOfWeek[now.getDay()];
   // Get current date (DD/MM/YYYY format)

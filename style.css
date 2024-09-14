@@ -51,6 +51,9 @@ header {
     width: 100%; /* Make each section take the full width */
     padding: 10px 0; /* Add some padding for better spacing */
   }
+  li {
+    width: 80%;
+  }
 }
 .forecast {
   background-color: rgb(191, 166, 214);
@@ -73,15 +76,26 @@ ul {
   font-weight: 900;
 }
 li {
+  text-align: center;
+  line-height: normal;
   display: inline-block;
+  justify-content: center;
   margin: 2px 0;
   background-color: rgba(247, 226, 226, 0.785);
   border-radius: 10px;
-  min-width: 100px;
+  min-width: 200px;
+  max-height: 100px;
 }
-li div {
-  display: inline-block;
-  padding: 2px;
-  border-radius: 10px;
-  min-width: 100px;
+.dforecast1 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dforecast1 div {
+  padding-top: 20px;
+  font-size: 16px; /* Optional, to adjust font size */
+}
+
+.wicon2 {
+  width: 100px; /* Adjust icon size */
 }
