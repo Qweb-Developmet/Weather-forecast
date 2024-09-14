@@ -1,79 +1,87 @@
 body {
-    display: block;
-    margin: 0;
-    padding: 30px 0;
-    text-align: center;
-    line-height: 40px;
-    max-width: 100%;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  }
-  #searchcity,
-  #submit {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 10px;
-    background-color: aliceblue;
-    border: none;
-  }
-  header {
-    background: lightblue;
-    border-radius: 30px 30px 0 0;
-    max-width: 100%;
-    padding: 10px;
-  }
+  display: block;
+  margin: 0;
+  padding: 30px 0;
+  text-align: center;
+  line-height: 40px;
+  max-width: 100%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+#searchcity,
+#submit {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: aliceblue;
+  border: none;
+}
+header {
+  background: lightblue;
+  border-radius: 30px 30px 0 0;
+  max-width: 100%;
+  padding: 10px;
+}
+.containermain1 {
+  background: lightblue;
+  margin: 0px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  padding: 10px;
+}
+.containersub1 {
+  justify-content: center;
+  padding: 20px 0 0 20px;
+  min-width: none;
+}
+.containersub2 {
+  border-radius: 10px;
+  justify-content: center;
+  padding: 0 5px 0 0;
+}
+@media (max-width: 450px) {
   .containermain1 {
-    background: lightblue;
-    margin: 0px;
-    border-radius: 10px 10px 0 0;
-    display: flex;
-    justify-content: center;
-    max-width: 100%;
-    padding: 10px;
+    flex-direction: column; /* Stack the items vertically */
   }
-  .containersub1 {
-    justify-content: center;
-    padding: 20px 0 0 20px;
-    min-width: none;
-  }
+
+  .containersub1,
   .containersub2 {
-    border-radius: 10px;
-    justify-content: center;
-    padding: 0 5px 0 0;
+    width: 100%; /* Make each section take the full width */
+    padding: 10px 0; /* Add some padding for better spacing */
   }
-  @media (max-width: 450px) {
-    .containermain1 {
-      flex-direction: column; /* Stack the items vertically */
-    }
-  
-    .containersub1,
-    .containersub2 {
-      width: 100%; /* Make each section take the full width */
-      padding: 10px 0; /* Add some padding for better spacing */
-    }
-  }
-  ul {
-    background-color: rgb(191, 166, 214);
-    border-radius: 10px 10px 30px 30px;
-    padding: 10px;
-    margin: 0px;
-    list-style: none;
-    max-width: 100%;
-  }
-  .forecast {
-    font-size: xx-large;
-    font-weight: 900;
-  }
-  li {
-    display: inline-block;
-    margin: 2px 0;
-    background-color: rgba(247, 226, 226, 0.785);
-    border-radius: 10px;
-    min-width: 100px;
-  }
-  li div {
-    display: inline-block;
-    padding: 2px;
-    border-radius: 10px;
-    min-width: 100px;
-  }
+}
+.forecast {
+  background-color: rgb(191, 166, 214);
+  border-radius: 10px 10px 0 0;
+  padding: 10px;
+  margin: 0px;
+  list-style: none;
+  max-width: 100%;
+}
+ul {
+  background-color: rgb(191, 166, 214);
+  border-radius: 0 0 30px 30px;
+  padding: 10px;
+  margin: 0px;
+  list-style: none;
+  max-width: 100%;
+}
+.forecast {
+  font-size: xx-large;
+  font-weight: 900;
+}
+li {
+  display: inline-block;
+  margin: 2px 0;
+  background-color: rgba(247, 226, 226, 0.785);
+  border-radius: 10px;
+  min-width: 100px;
+}
+li div {
+  display: inline-block;
+  padding: 2px;
+  border-radius: 10px;
+  min-width: 100px;
+}
