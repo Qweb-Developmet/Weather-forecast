@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weather</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <form>
+        <input
+          type="text"
+          id="searchcity"
+          name="city-search"
+          placeholder="Search for a country..."
+          value="kabul"
+        />
+        <input type="submit" name="submit_button" id="submit" />
+      </form>
+    </header>
+    <main>
+      <div class="containermain1">
+        <div class="containersub2">
+          <h1 class="cityname"></h1>
+          <h2 class="citytemp">
+            <span class="tempnumber"></span> &deg;C <br />
+            <when></when>
+          </h2>
+          <img
+            src="https://th.bing.com/th/id/R.770b805d5c99c7931366c2e84e88f251?rik=khgO%2bY1Hh3BT9w&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-weather-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596142qx4ep.png&ehk=6msbAydV7X6D4bO8zvLC664aXwKOdBU17dwrHcKxaAg%3d&risl=&pid=ImgRaw&r=0"
+            alt="weather icon"
+            class="wicon"
+            id="wicon"
+            width="100px"
+          />
+        </div>
+        <div class="containersub1">
+          <p class="citycondition">
+            It is <time></time> <br />wind speed is :
+            <strong class="windspeed">1 </strong>Km/h <br />and feels like :
+            <strong class="tempraturelike">20 </strong>&deg;C
+          </p>
+        </div>
+      </div>
+      <div>
+        <ul>
+          <p class="forecast">In this Week</p>
+
+          <li class="2day">
+            <div class="dforecast1">monday</div>
+            <img
+              src="https://th.bing.com/th/id/R.770b805d5c99c7931366c2e84e88f251?rik=khgO%2bY1Hh3BT9w&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-weather-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596142qx4ep.png&ehk=6msbAydV7X6D4bO8zvLC664aXwKOdBU17dwrHcKxaAg%3d&risl=&pid=ImgRaw&r=0"
+              alt="weather icon"
+              class="wicon2"
+              id="wicon"
+              width="100px"
+            />
+          </li>
+          <li class="3day">
+            <div class="dforecast2"></div>
+            <img
+              src="https://th.bing.com/th/id/R.770b805d5c99c7931366c2e84e88f251?rik=khgO%2bY1Hh3BT9w&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-weather-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596142qx4ep.png&ehk=6msbAydV7X6D4bO8zvLC664aXwKOdBU17dwrHcKxaAg%3d&risl=&pid=ImgRaw&r=0"
+              alt="weather icon"
+              class="wicon2"
+              id="wicon"
+              width="100px"
+            />
+          </li>
+          <li class="4day">
+            <div class="dforecast3">sunday</div>
+            <img
+              src="https://th.bing.com/th/id/R.770b805d5c99c7931366c2e84e88f251?rik=khgO%2bY1Hh3BT9w&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-weather-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596142qx4ep.png&ehk=6msbAydV7X6D4bO8zvLC664aXwKOdBU17dwrHcKxaAg%3d&risl=&pid=ImgRaw&r=0"
+              alt="weather icon"
+              class="wicon2"
+              id="wicon"
+              width="100px"
+            />
+          </li>
+          <li class="5day">
+            <div class="dforecast4"></div>
+            <img
+              src="https://th.bing.com/th/id/R.770b805d5c99c7931366c2e84e88f251?rik=khgO%2bY1Hh3BT9w&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-weather-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596142qx4ep.png&ehk=6msbAydV7X6D4bO8zvLC664aXwKOdBU17dwrHcKxaAg%3d&risl=&pid=ImgRaw&r=0"
+              alt="weather icon"
+              class="wicon2"
+              id="wicon"
+              width="100px"
+            />
+          </li>
+          <li class="1day">
+            <div class="dforecast5"></div>
+            <img
+              src="https://th.bing.com/th/id/R.770b805d5c99c7931366c2e84e88f251?rik=khgO%2bY1Hh3BT9w&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-weather-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596142qx4ep.png&ehk=6msbAydV7X6D4bO8zvLC664aXwKOdBU17dwrHcKxaAg%3d&risl=&pid=ImgRaw&r=0"
+              alt="weather icon"
+              class="wicon2"
+              id="wicon"
+              width="100px"
+            />
+          </li>
+          <li class="6day">
+            <div class="dforecast6"></div>
+            <img
+              src="https://th.bing.com/th/id/R.770b805d5c99c7931366c2e84e88f251?rik=khgO%2bY1Hh3BT9w&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-weather-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596142qx4ep.png&ehk=6msbAydV7X6D4bO8zvLC664aXwKOdBU17dwrHcKxaAg%3d&risl=&pid=ImgRaw&r=0"
+              alt="weather icon"
+              class="wicon2"
+              id="wicon"
+              width="100px"
+            />
+          </li>
+          <li class="7day">
+            <div datemonth>
+              <div class="dforecast7"></div>
+            </div>
+            <img
+              src="https://th.bing.com/th/id/R.770b805d5c99c7931366c2e84e88f251?rik=khgO%2bY1Hh3BT9w&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-weather-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596142qx4ep.png&ehk=6msbAydV7X6D4bO8zvLC664aXwKOdBU17dwrHcKxaAg%3d&risl=&pid=ImgRaw&r=0"
+              alt="weather icon"
+              class="wicon2"
+              id="wicon"
+              width="100px"
+            />
+          </li>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <p>
+        codded by
+        <a
+          href="https://www.linkedin.com/in/qkhy/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Qurban H.Yar</a
+        >
+        &copy; 2024 Qweather. All rights reserved.
+      </p>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
