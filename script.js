@@ -34,25 +34,45 @@ function forecastapihandlingfn(city) {
     )
     .then(forecastfn);
 }
+function formatday(timestamp) {
+  let date = new Date(timestamp * 1000); // Convert timestamp to milliseconds
+  const daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return daysOfWeek[date.getDay()];
+}
 
 function forecastfn(response) {
-  forecastElement = document.querySelector(`#forecast`);
-  forecastsHtml = ``;
+  let forecastElement = document.querySelector(`#forecast`);
+  let forecastsHtml = ``;
   response.data.daily.forEach(function (day) {
-    forecastsHtml =
-      forecastsHtml +
-      `<li class="2day">
-      <div class="dforecast1">1 <p> ${Math.round(day.temperature.minimum)} to  
-      <b style="font-size: larger;"> ${Math.round(day.temperature.maximum)}</b> 
-      </p> </div> 
-    <img
-      src="${day.condition.icon_url}"="weather icon"
-      class="wicon2"
-      id="wicon"
-      width="100px"
-    /></li>`;
+    // Call formatday to get the correct day of the week
+    const dayOfWeek = formatday(day);
+    forecastsHtml += `
+      <li class="2day">
+        <div class="dforecast1">${dayOfWeek} <p> ${Math.round(
+      day.temperature.minimum
+    )}°C to  
+        <b style="font-size: larger;"> ${Math.round(
+          day.temperature.maximum
+        )}°C</b> 
+        </p> </div> 
+        <img
+          src="${day.condition.icon_url}" alt="weather icon"
+          class="wicon2"
+          id="wicon"
+          width="100px"
+        />
+      </li>`;
   });
   forecastElement.innerHTML = forecastsHtml;
+  console.log(response.data.daily);
 }
 
 let form = document.querySelector("form");
